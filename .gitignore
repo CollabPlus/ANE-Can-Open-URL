@@ -1,0 +1,28 @@
+# General
+temp/*
+test/bin/*
+build.config
+
+# Not licensed for distribution
+FlashRuntimeExtensions.h
+FlashRuntimeExtensions.jar
+
+# Eclipse FDT
+.settings/*
+.project
+
+# Eclipse JDT
+android/bin
+android/gen
+android/res
+.classpath
+proguard-project.txt
+project.properties
+
+# Xcode
+xcuserdata
+
+# OS X
+Icon
+Thumbs.db
+.DS_Store
