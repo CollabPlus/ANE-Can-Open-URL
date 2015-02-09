@@ -1,6 +1,10 @@
 # General
 temp/*
 test/bin/*
+test/build/build.config
+test/build/android.p12
+test/build/ios.p12
+test/build/ios.mobileprovision
 
 # Not licensed for distribution
 FlashRuntimeExtensions.h

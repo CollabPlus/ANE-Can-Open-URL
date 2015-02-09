@@ -137,7 +137,7 @@
 		
 		private function testTwitter( event : MouseEvent ) : void
 		{
-			if( CanOpenUrl.canOpen( "notwitter://user?screen_name=sticksports" ) )
+			if( CanOpenUrl.canOpen( "twitter://user?screen_name=sticksports" ) )
 			{
 				feedback.text = "Can open twitter://user?screen_name=sticksports";
 			}
@@ -149,7 +149,7 @@
 		
 		private function visitTwitter( event : MouseEvent ) : void
 		{
-			navigateToURL( new URLRequest( "notwitter://user?screen_name=sticksports" ) );
+			navigateToURL( new URLRequest( "twitter://user?screen_name=sticksports" ) );
 			feedback.text = "Visiting twitter://user?screen_name=sticksports";
 		}
 		

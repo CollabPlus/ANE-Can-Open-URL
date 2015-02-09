@@ -9,6 +9,13 @@
 				<finalizer>CanOpenUrlExtensionFinalizer</finalizer>
 			</applicationDeployment>
 		</platform>
+		<platform name="iPhone-x86">
+			<applicationDeployment>
+				<nativeLibrary>libCanOpenUrlIosExtension.a</nativeLibrary>
+				<initializer>CanOpenUrlExtensionInitializer</initializer>
+				<finalizer>CanOpenUrlExtensionFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>		
 		<platform name="Android-ARM">
 			<applicationDeployment>
 				<nativeLibrary>CanOpenUrlAndroidExtension.jar</nativeLibrary>
