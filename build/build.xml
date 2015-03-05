@@ -8,15 +8,32 @@
 	<target name="ios" description="Build iOS Library">
 		<mkdir dir="../temp/ios/build/"/>
 
+		<!-- build static lib for iOS Devices targeting archs armv7, arvm64 -->
 		<exec executable="xcodebuild" failonerror="true" dir="../ios/${name}IosExtension">
 			<arg line='-project ${name}IosExtension.xcodeproj'/>
 			<arg line='-target ${name}IosExtension'/>
+			<arg line='-sdk iphoneos' />
 			<arg line='-configuration Release'/>
 			<arg line='SYMROOT=../../temp/ios/build/'/>
 		</exec>
 		
-		<copy file="../temp/ios/build/Release-iphoneos/lib${name}IosExtension.a" todir="../temp/ios" overwrite="true"/>
-		
+		<!-- build static lib for iOS simulator targeting archs i386, x86_64 -->
+		<exec executable="xcodebuild" failonerror="true" dir="../ios/${name}IosExtension">
+			<arg line='-project ${name}IosExtension.xcodeproj'/>
+			<arg line='-target ${name}IosExtension'/>
+			<arg line='-sdk iphonesimulator8.1' />
+			<arg line='-configuration Release'/>
+			<arg line='SYMROOT=../../temp/ios/build/'/>
+		</exec>
+
+		<!-- create a fat/universal binary that include both device and simulator archs (armv7 i386 x86_64 arm64 )
+			 from their corresponding lib -->
+		<exec executable="lipo" failonerror="true" dir="../temp/ios">
+			<arg line='-create -output lib${name}IosExtension.a'/> 
+			<arg line='build/Release-iphoneos/lib${name}IosExtension.a'/>
+			<arg line='build/Release-iphonesimulator/lib${name}IosExtension.a'/>
+		</exec>
+
 		<delete dir="../temp/ios/build/"/>
 	</target>
 		
