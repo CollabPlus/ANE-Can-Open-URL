@@ -5,6 +5,11 @@
 		
 	<target name="all" depends="ios,android,swc,default,package" description="Full build of extension"/>
 	
+	<!--
+		command to determine the arch support 
+		terminal>unzip CanOpenUrl.ane
+		terminal>lipo -info META-INF/ANE/iPhone-ARM/libCanOpenUrlIosExtension.a 
+	-->
 	<target name="ios" description="Build iOS Library">
 		<mkdir dir="../temp/ios/build/"/>
 
@@ -36,7 +41,13 @@
 
 		<delete dir="../temp/ios/build/"/>
 	</target>
+	
+	<!--
+		terminal>export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`
 		
+		command to determine the java version with in .jar 
+		ternminal>unzip -p META-INF/ANE/Android-ARM/CanOpenUrlAndroidExtension.jar META-INF/MANIFEST.MF  
+	-->	
 	<target name="android" description="Build android Library">
 		<delete dir="../android/temp"/>
 		<mkdir dir="../android/temp/classes"/>
