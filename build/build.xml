@@ -21,7 +21,7 @@
 		<exec executable="xcodebuild" failonerror="true" dir="../ios/${name}IosExtension">
 			<arg line='-project ${name}IosExtension.xcodeproj'/>
 			<arg line='-target ${name}IosExtension'/>
-			<arg line='-sdk iphonesimulator8.1' />
+			<arg line='-sdk iphonesimulator8.2' />
 			<arg line='-configuration Release'/>
 			<arg line='SYMROOT=../../temp/ios/build/'/>
 		</exec>
